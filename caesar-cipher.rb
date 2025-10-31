@@ -1,31 +1,27 @@
-def caesar_cipher(str, shift)
+def caesar_cipher(str, shift = 1)
   shifted_string = []
+  # It's pointless to shift more than 25 steps
+  while shift > 25 do
+    puts "Cannot shift more than 25 steps. Please enter new value: "
+    shift = gets.chomp.to_i
+  end
   # Convert each letter to ascii code
   str.bytes.each do |code|
     # If it's an uppercase letter, shift it by the specified amount
     if code.between?(65, 90)
-      # Wrap around if it passes the letter Z
-      unless (code + shift) > 90
-        shifted_string.push (code + shift - 26).chr
-        p shifted_string
-      else
-        shifted_string.push (code + shift).chr
-        p shifted_string
+      code += shift
+      # Wrap around if it passes Z
+      if code > 90
+        code -= 26
       end
-    # The same functionality but for lowercase letters
+    # Do the same for lowercase letters
     elsif code.between?(97, 122)
-      unless (code + shift) > 122
-        shifted_string.push (code + shift - 26).chr
-        p shifted_string
-      else
-        shifted_string.push (code + shift).chr
-        p shifted_string
+      code += shift
+      if code > 122
+        code -= 26
       end
-    # We're not shifting anything that's not a letter
-    else
-      shifted_string.push code.chr
-      p shifted_string
     end
+    shifted_string.push code.chr
   end
   shifted_string
 end
