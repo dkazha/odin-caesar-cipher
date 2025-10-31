@@ -23,7 +23,7 @@ def caesar_cipher(str, shift = 1)
     end
     shifted_string.push code.chr
   end
-  shifted_string
+  shifted_string.join
 end
 
 puts "String to encrypt: "
@@ -32,4 +32,4 @@ puts "Steps to shift: "
 shift_amount = gets.chomp.to_i
 
 new_string = caesar_cipher(initial_string, shift_amount)
-puts "Encrypted string: #{new_string.join}"
+puts "Encrypted string: #{new_string}"
