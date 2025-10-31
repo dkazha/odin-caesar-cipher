@@ -35,4 +35,4 @@ initial_string = gets.chomp
 puts "Steps to shift: "
 shift_amount = gets.chomp.to_i
 
-puts "Encrypted string: #{caesar_cipher(initial_string, shift_amount)}"
+puts "Encrypted string:\n#{caesar_cipher(initial_string, shift_amount)}"
