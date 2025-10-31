@@ -13,12 +13,16 @@ def caesar_cipher(str, shift)
       # Wrap around if it passes Z
       if code > 90
         code -= 26
+      elsif code < 65
+        code += 26
       end
     # Do the same for lowercase letters
     elsif code.between?(97, 122)
       code += shift
       if code > 122
         code -= 26
+      elsif code < 97
+        code += 26
       end
     end
     shifted_string.push code.chr
