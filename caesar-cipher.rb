@@ -1,7 +1,7 @@
 def caesar_cipher(str, shift)
   shifted_string = []
   # It's pointless to shift more than 25 steps
-  while shift > 25 do
+  while shift > 25 || shift < -25 do
     puts "Cannot shift more than 25 steps. Please enter new value: "
     shift = gets.chomp.to_i
   end
