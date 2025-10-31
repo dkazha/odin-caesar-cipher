@@ -10,7 +10,7 @@ def caesar_cipher(str, shift)
     # If it's an uppercase letter, shift it by the specified amount
     if code.between?(65, 90)
       code += shift
-      # Wrap around if it passes Z
+      # Wrap around if it passes A or Z
       if code > 90
         code -= 26
       elsif code < 65
